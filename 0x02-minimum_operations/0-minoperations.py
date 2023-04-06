@@ -1,27 +1,25 @@
 #!/usr/bin/python3
+""" a python function to find minimun operation number(CopyAll & Paste """
 
-"""
-    In a text file, there is a single character H.
-    Your text editor can execute only two operations in this file:
-    Copy All and Paste. Given a number n, write a method that calculates
-    the fewest number of operations needed to result
-    in exactly n H characters in the file.
-"""
 
 def minOperations(n):
+    """
+    minOperation - function to find the minumum no of operation to find
+    n number of H characters givne a sing H chr in text file
+    Arguments:
+        n - the number required to reach
+    Returns:
+        the number of minimum operations
+    """
+    c = 0
+    i = 2
+    if type(n) is not int or n < 2:
+        return (0)
+    while (n != 1):
+        if n % i == 0:
+            c += i
+            n /= i
+            i = 1
+        i = i + 1
 
-    nOpe = 0
-
-    minOpe = 2
-
-    while n > 1:
-
-        while n % minOpe == 0:
-
-            nOpe += minOpe
-
-            n /= minOpe
-
-        minOpe += 1
-
-    return nOpe
+    return (c)
